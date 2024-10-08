@@ -18,7 +18,7 @@ var clipIndex = 0;
     
     const iframe = document.createElement('iframe');
 
-    // handling the case of going left at the start
+    // handling the case of going left at the start -- better to just not do anything ? don't display prev-arrow on first clip?
     clipIndex = clipIndex + increment;
     if (clipIndex < 0) {
         clipIndex = 0;
@@ -39,7 +39,6 @@ var clipIndex = 0;
 }
 
 getTopClips(clientId, authToken, "Just Chatting", 1);
-//document.querySelector('#carouselExampleControls').addEventListener('click', replaceCarouselItem);
+document.addEventListener('DOMContentLoaded', () => replaceCarouselItem(0));
 document.querySelector('.carousel-control-next').addEventListener('click', () => replaceCarouselItem(1));
 document.querySelector('.carousel-control-prev').addEventListener('click', () => replaceCarouselItem(-1));
-

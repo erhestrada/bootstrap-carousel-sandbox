@@ -15,10 +15,14 @@ function playCurrentVideo() {
 */
 
 function addCarouselItem() {
+    const currentClip = document.getElementById("current-clip");
+    currentClip.remove();
+
     const carouselInner = document.querySelector('.carousel-inner');
     
     const newItem = document.createElement('div');
-    newItem.className = 'carousel-item iframe-slide';
+    newItem.className = 'carousel-item iframe-slide active';
+    newItem.id = "current-clip";
     
     const flexContainer = document.createElement('div');
     flexContainer.className = 'd-flex justify-content-center align-items-center';

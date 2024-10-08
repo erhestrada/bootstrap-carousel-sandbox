@@ -1,4 +1,6 @@
 import { getTopClips } from './getTopClips.js';
+
+var clipIndex = 0;
  
  function replaceCarouselItem() {
     const currentClip = document.getElementById("current-clip");
@@ -15,7 +17,9 @@ import { getTopClips } from './getTopClips.js';
     flexContainer.style.height = '500px';
     
     const iframe = document.createElement('iframe');
-    iframe.src = 'https://clips.twitch.tv/embed?clip=SmoothArbitraryCodTakeNRG-ok-RXU3sW-6RQJ_-&parent=localhost&autoplay=true';
+    //iframe.src = 'https://clips.twitch.tv/embed?clip=SmoothArbitraryCodTakeNRG-ok-RXU3sW-6RQJ_-&parent=localhost&autoplay=true';
+    iframe.src = localStorage.getItem(clipIndex) + "&parent=localhost&autoplay=true";
+    clipIndex++;
     iframe.height = '360';
     iframe.width = '640';
     iframe.frameBorder = '0';
@@ -29,5 +33,5 @@ import { getTopClips } from './getTopClips.js';
     const carousel = new bootstrap.Carousel(document.querySelector('#carouselExampleControls'));
 }
 
-document.querySelector('#carouselExampleControls').addEventListener('click', replaceCarouselItem);
 getTopClips(clientId, authToken, "Just Chatting", 1);
+document.querySelector('#carouselExampleControls').addEventListener('click', replaceCarouselItem);

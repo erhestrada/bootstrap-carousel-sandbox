@@ -17,8 +17,12 @@ var clipIndex = 0;
     flexContainer.style.height = '500px';
     
     const iframe = document.createElement('iframe');
-    //iframe.src = 'https://clips.twitch.tv/embed?clip=SmoothArbitraryCodTakeNRG-ok-RXU3sW-6RQJ_-&parent=localhost&autoplay=true';
+
+    // handling the case of going left at the start
     clipIndex = clipIndex + increment;
+    if (clipIndex < 0) {
+        clipIndex = 0;
+    }
     iframe.src = localStorage.getItem(clipIndex) + "&parent=localhost&autoplay=true";
     console.log(clipIndex);
     iframe.height = '360';

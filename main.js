@@ -34,4 +34,5 @@ var clipIndex = 0;
 }
 
 getTopClips(clientId, authToken, "Just Chatting", 1);
-document.querySelector('#carouselExampleControls').addEventListener('click', replaceCarouselItem);
+//document.querySelector('#carouselExampleControls').addEventListener('click', replaceCarouselItem);
+document.querySelector('.carousel-control-next').addEventListener('click', replaceCarouselItem);
